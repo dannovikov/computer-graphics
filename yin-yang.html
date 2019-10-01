@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<!–– Yin Yang - Daniel Novikov ––>
+  <head>
+    <meta charset="UTF-8">
+    <title>Yin Yang</title>
+    <style>
+      body {
+        background: #000000
+      }
+ 
+      #canvas {
+        background: ivory;
+        border: thin solid #ffffff
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id='canvas' width = '600' height = '600'> Canvas not supported</canvas>
+    <script>
+    	var canvas = document.getElementById('canvas'),
+		ctx = canvas.getContext('2d');
+        
+        //Properties of yin-yang circle
+        var radius = 50;
+        var origin_x = canvas.width/2;
+        var origin_y = canvas.height/2;
+        
+        //black background circle
+		ctx.beginPath();
+		ctx.arc(origin_x, origin_y, radius, 0, Math.PI * 2);
+        ctx.stroke();
+        ctx.fill();
+        
+        //white background semi-circle
+        ctx.fillStyle ='white'
+        ctx.beginPath();
+        ctx.arc(origin_x, origin_y, radius, 1.5 * Math.PI, 0.5* Math.PI);
+        ctx.fill();
+		
+        //white upper circle
+        ctx.beginPath();
+        ctx.arc(origin_x , origin_y - radius/2, radius/2, 0, Math.PI*2);
+        ctx.fill();
+        
+        //black lower circle
+        ctx.fillStyle = 'black'
+        ctx.beginPath();
+        ctx.arc(origin_x, origin_y + radius/2, radius/2, 0, Math.PI*2);
+        ctx.fill();
+
+	    </script>
+  </body>
+</html>
